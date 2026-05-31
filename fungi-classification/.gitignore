@@ -1,0 +1,18 @@
+# dane i wyniki -- nie trzymamy w repo
+data/raw/
+data/unified/
+data/*.csv
+outputs/
+models/*.pth
+*.pth
+
+# python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+env/
+venv/
+
+# system
+.DS_Store

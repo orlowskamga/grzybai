@@ -1,0 +1,14 @@
+experiment_name: customcnn
+model_name: custom_cnn
+pretrained: false
+img_size: 128
+batch_size: 64
+epochs: 40
+lr: 0.001
+optimizer: adam
+scheduler: cosine
+early_stop_patience: 10
+freeze_backbone: false
+finetune_epochs: 0
+imbalance: class_weights
+normalize: half

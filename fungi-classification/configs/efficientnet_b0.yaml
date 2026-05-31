@@ -1,0 +1,15 @@
+experiment_name: efficientnet_b0
+model_name: efficientnet_b0
+pretrained: true
+img_size: 224
+batch_size: 32
+epochs: 12
+lr: 0.001
+optimizer: adamw
+scheduler: cosine
+freeze_backbone: true
+finetune_epochs: 18
+finetune_lr: 0.0001
+early_stop_patience: 8
+imbalance: class_weights
+normalize: imagenet

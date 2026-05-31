@@ -1,0 +1,15 @@
+experiment_name: convnext_tiny
+model_name: convnext_tiny
+pretrained: true
+img_size: 224
+batch_size: 32
+epochs: 12
+lr: 0.0005
+optimizer: adamw
+scheduler: cosine
+freeze_backbone: true
+finetune_epochs: 18
+finetune_lr: 0.00005
+early_stop_patience: 8
+imbalance: class_weights
+normalize: imagenet

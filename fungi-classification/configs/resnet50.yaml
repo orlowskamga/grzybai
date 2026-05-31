@@ -1,0 +1,15 @@
+experiment_name: resnet50
+model_name: resnet50
+pretrained: true
+img_size: 224
+batch_size: 32
+epochs: 12            # faza 1: glowica
+lr: 0.001
+optimizer: adam
+scheduler: cosine
+freeze_backbone: true
+finetune_epochs: 18   # faza 2: fine-tuning calosci
+finetune_lr: 0.0001
+early_stop_patience: 8
+imbalance: class_weights
+normalize: imagenet
