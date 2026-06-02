@@ -1,7 +1,7 @@
 # Automatyczna klasyfikacja mikroskopowych obrazow grzybow (CNN)
 
 Klasyfikacja mikroskopowych obrazow grzybow na podstawie zbiorow **DeFungi**
-i **OpenFungi** (czesc mikroskopowa). Projekt porownuje siec konwolucyjna
+i **OpenFungi**. Projekt porownuje siec konwolucyjna
 trenowana **od zera** z **transfer learningiem** (kilka backbone'ow), z pelna
 ewaluacja i interfejsem testowym.
 
@@ -18,24 +18,8 @@ src/fungi/        wspolny kod (pipeline danych, modele, trening, ewaluacja, Grad
   explain.py      Grad-CAM (wlasna implementacja, bez zewnetrznych bibliotek)
 scripts/          prepare_data.py, train.py, evaluate.py
 configs/          po jednym YAML na eksperyment + class_mapping.yaml
-notebooks/        cienkie notatniki opakowujace pipeline (do raportu/wykresow)
 app.py            interfejs Gradio (predykcja + Grad-CAM)
 ```
-
-## Decyzje projektowe (skrot)
-
-- **Wspolny klasyfikator** dla obu zbiorow. Etykiety sa ujednolicane przez
-  `configs/class_mapping.yaml`. Poniewaz zbiory roznia sie warunkami obrazowania,
-  model moglby rozpoznawac *zrodlo* zamiast morfologii -- dlatego:
-  - wybor modelu i raporty oparte na **macro-F1** (nie samej accuracy),
-  - manifest przechowuje kolumne `source`, a `evaluate.py` liczy wyniki
-    **w rozbiciu na zrodlo** (duza dysproporcja = sygnal ostrzegawczy),
-  - *Aspergillus niger* (DeFungi) i *A.* sekcja Nigri (OpenFungi) sa domyslnie
-    scalone w jedna klase.
-- **Podzial grupowo-stratyfikowany** (train/val/test): patche z jednego
-  preparatu nie trafiaja do roznych zbiorow (brak przecieku). Wymaga ustawienia
-  `group_regex` dla DeFungi w `class_mapping.yaml`.
-- **Powtarzalnosc**: jeden seed steruje podzialem, inicjalizacja i DataLoaderami.
 
 ## Instalacja
 
