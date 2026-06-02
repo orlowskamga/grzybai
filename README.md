@@ -53,8 +53,3 @@ pip install -r requirements.txt
    ```bash
    python app.py --config configs/resnet50.yaml --checkpoint outputs/resnet50/best.pth
    ```
-
-## Sprzet
-
-Trening na serwerze NVIDIA (CUDA). Dwie karty pozwalaja uruchamiac dwa
-eksperymenty rownolegle (po jednym na GPU): `CUDA_VISIBLE_DEVICES=0` i `=1`.
